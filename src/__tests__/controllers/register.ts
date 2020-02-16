@@ -4,6 +4,7 @@ const request = supertest(app);
 import { connection } from '../../database';
 import { User } from '../../models';
 import faker from 'faker';
+import { server } from '../../index';
 describe('Register User', () => {
     let sessionId = '';
 
@@ -236,6 +237,9 @@ describe('Register User - Failed Scenarios', () => {
             .expect({ message: 'You must be logged in' });
 
         done();
+    });
+    afterAll(() => {
+        server.close();
     });
 });
 describe('Errors', () => {

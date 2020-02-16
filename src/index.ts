@@ -33,5 +33,5 @@ app.use('/', VeritifyRoute);
 app.use(NotFound);
 app.use(errorHandler);
 
-app.listen(APP_PORT);
+export const server = app.listen(APP_PORT);
 export default app;
