@@ -1,15 +1,12 @@
 sudo: true
 env:
-    - DOCKER_COMPOSE_VERSION=1.4.2
+    - DOCKER_COMPOSE_VERSION=1.8
 
 language: node_js
 before_script:
     - sudo apt-get update
-    - sudo rm /usr/local/bin/docker-compose
-    - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-    - chmod +x docker-compose
-    - sudo mv docker-compose /usr/local/bin
-    - npm run dev:docker
+    - sleep 15
+    - mongo auth --eval 'db.createUser({user:"admin",pwd:"secret",roles:["readWrite"]});'
 node_js:
     - node
 install:
