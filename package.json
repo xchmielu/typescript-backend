@@ -14,7 +14,8 @@
         "up": "docker-compose up -d",
         "stop": "docker-compose stop",
         "down": "docker-compsoe down",
-        "dev:docker": "npm run up && npm run dev"
+        "dev:docker": "npm run up && npm run dev",
+        "test:docker": "set NODE_ENV=testing && npm run up && npm run dev"
     },
     "keywords": [
         "node"

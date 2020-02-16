@@ -5,3 +5,4 @@ export const {
 } = process.env;
 
 export const IN_PROD = NODE_ENV === 'production';
+export const IN_TEST = NODE_ENV === 'testing';
