@@ -1,0 +1,16 @@
+sudo: false
+language: node_js
+before_script:
+    - npm update -g npm
+    - npm run dev:docker
+node_js:
+    - node
+install:
+    - npm ci
+script:
+    - npm run lint
+    - npm run coveralls
+services:
+    - docker
+    - mongodb
+    - redis-server

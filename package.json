@@ -1,0 +1,78 @@
+{
+    "name": "api",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "prebulid": "rm -rf dist",
+        "build": "tsc",
+        "dev": "ts-node-dev --transpileOnly --no-notify src",
+        "test": "jest",
+        "coverage": "npx jest --coverage",
+        "coveralls": "jest --maxWorkers=4 --detectOpenHandles --coverage --coverageReporters=text-lcov | coveralls",
+        "lint": "tsc --noEmit && eslint . --ext .js,.jsx,.ts,.tsx --quiet --fix ",
+        "up": "docker-compose up -d",
+        "stop": "docker-compose stop",
+        "down": "docker-compsoe down",
+        "dev:docker": "npm run up && npm run dev"
+    },
+    "keywords": [
+        "node"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "@hapi/joi": "^17.1.0",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.19.0",
+        "connect-redis": "^4.0.3",
+        "express": "^4.17.1",
+        "express-session": "^1.17.0",
+        "ioredis": "^4.14.1",
+        "joi": "^14.3.1",
+        "mongoose": "^5.8.9",
+        "nodemailer": "^6.4.2"
+    },
+    "devDependencies": {
+        "@types/bcryptjs": "^2.4.2",
+        "@types/connect-redis": "0.0.13",
+        "@types/express": "^4.17.2",
+        "@types/express-session": "^1.15.16",
+        "@types/faker": "^4.1.9",
+        "@types/hapi__joi": "^16.0.9",
+        "@types/ioredis": "^4.14.4",
+        "@types/jest": "^25.1.2",
+        "@types/joi": "^14.3.4",
+        "@types/mongoose": "^5.5.43",
+        "@types/morgan": "^1.7.37",
+        "@types/node": "^13.7.1",
+        "@types/nodemailer": "^6.4.0",
+        "@types/supertest": "^2.0.8",
+        "@typescript-eslint/eslint-plugin": "^2.19.2",
+        "@typescript-eslint/parser": "^2.19.2",
+        "coveralls": "^3.0.9",
+        "eslint": "^6.8.0",
+        "eslint-plugin-jest": "^23.7.0",
+        "faker": "^4.1.0",
+        "husky": "^4.2.3",
+        "jest": "^25.1.0",
+        "lint-staged": "^10.0.7",
+        "morgan": "^1.9.1",
+        "prettier": "^1.19.1",
+        "supertest": "^4.0.2",
+        "ts-jest": "^25.2.0",
+        "ts-node-dev": "^1.0.0-pre.44",
+        "typescript": "^3.7.5"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,ts,tsx}": [
+            "npm run lint",
+            "git add"
+        ]
+    }
+}
