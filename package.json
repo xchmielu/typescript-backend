@@ -9,7 +9,7 @@
         "dev": "ts-node-dev --transpileOnly --no-notify src",
         "test": "jest",
         "coverage": "npx jest --coverage",
-        "coveralls": "jest --maxWorkers=4 --detectOpenHandles --coverage --coverageReporters=text-lcov | coveralls",
+        "coveralls": "jest --maxWorkers=4 --forceExit --detectOpenHandles --coverage --coverageReporters=text-lcov | coveralls",
         "lint": "tsc --noEmit && eslint . --ext .js,.jsx,.ts,.tsx --quiet --fix ",
         "up": "docker-compose up -d",
         "stop": "docker-compose stop",
