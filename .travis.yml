@@ -13,6 +13,7 @@ install:
     - npm ci
 script:
     - npm run lint
+    - set NODE_ENV=testing
     - npm run coveralls
 services:
     - docker
