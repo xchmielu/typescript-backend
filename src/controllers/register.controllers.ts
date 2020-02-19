@@ -4,6 +4,7 @@ import { User } from '../models';
 import { logIn } from '../auth';
 import { validate } from '../validation/index';
 import { BadRequest } from '../errors/errors';
+import { registerMail, sendMail } from '../mailer';
 
 export const registerUser = async (req: Request, res: Response) => {
     await validate(registerSchema, req.body);
@@ -17,6 +18,11 @@ export const registerUser = async (req: Request, res: Response) => {
 
     logIn(req, user.id);
     user.save();
+
+    const mailOptions = await registerMail(user._id);
+
+    await sendMail(mailOptions);
+
     return res.status(201).json({
         message: 'ok',
         data: user

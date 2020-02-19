@@ -6,6 +6,7 @@ import morgan from 'morgan';
 import RegisterRoutes from './routes/register';
 import LoginRoutes from './routes/login';
 import VeritifyRoute from './routes/vertify';
+import ForgotRoute from './routes/forgot';
 
 import bodyParser from 'body-parser';
 import { APP_PORT, REDIS_OPTIONS } from './config/index';
@@ -28,6 +29,7 @@ app.use(bodyParser.json());
 app.use('/', RegisterRoutes);
 app.use('/', LoginRoutes);
 app.use('/', VeritifyRoute);
+app.use('/', ForgotRoute);
 
 //Middlewares
 app.use(NotFound);

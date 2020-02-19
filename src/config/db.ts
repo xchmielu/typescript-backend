@@ -4,8 +4,10 @@ const {
     MONGO_USERNAME = 'admin',
     MONGO_PASSWORD = 'secret',
     MONGO_HOST = 'localhost',
-    MONGO_PORT = ((process.env
-        .NODE_ENV as any) = ('testing' as string) ? 27017 : 27018),
+    MONGO_PORT = (process.env.NODE_ENV as any) ===
+    ('testing' as string)
+        ? 27017
+        : 27018,
     MONGO_DATABASE = 'auth'
 } = process.env;
 

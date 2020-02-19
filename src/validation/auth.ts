@@ -39,3 +39,7 @@ export const loginSchema = Joi.object({
     email,
     password
 });
+
+export const forgotPasswordSchema = Joi.object({
+    email
+});

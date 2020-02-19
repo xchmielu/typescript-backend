@@ -43,8 +43,8 @@ UserSchema.methods.verification = function() {
     this.verificated = true;
 };
 
-UserSchema.set('toJSON', {
-    transform: (doc, { __v, password, ...rest }, options) => rest
-});
+// UserSchema.set('toJSON', {
+//     transform: (doc, { __v, password, ...rest }, options) => rest
+// });
 
 export const User = model<User>('User', UserSchema);
